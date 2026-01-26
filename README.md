@@ -8,6 +8,11 @@ A simple Employee Management System built using Spring Boot + Spring Data JPA.
 - Get Employee By ID
 - Update Employee
 - Delete Employee
+- Validation using 
+- Global Exception Handling 
+- Custom Exception: Employee Not Found (404)
+- ResponseEntity with proper HTTP status codes
+- Pagination + Sorting
 
 ## Tech Stack
 - Java
@@ -15,6 +20,7 @@ A simple Employee Management System built using Spring Boot + Spring Data JPA.
 - Spring Data JPA
 - PostgreSQL
 - Swagger UI
+- Postman
 
 ## API Endpoints
 - GET /employee
