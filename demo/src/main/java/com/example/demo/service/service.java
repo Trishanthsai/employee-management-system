@@ -1,8 +1,10 @@
 package com.example.demo.service;
 
+import com.example.demo.exception.EmployeeNotFoundException;
 import com.example.demo.model.employee;
 import com.example.demo.repo.repo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,22 +19,37 @@ public class service {
         return r.findAll();
     }
 
+    // ✅ Pagination + Sorting service method
+    public Page<employee> getemployeesPage(int page, int size, String sortBy, String direction) {
+
+        Sort sort = direction.equalsIgnoreCase("desc")
+                ? Sort.by(sortBy).descending()
+                : Sort.by(sortBy).ascending();
+
+        Pageable pageable = PageRequest.of(page, size, sort);
+
+        return r.findAll(pageable);
+    }
+
     public employee addemployee(employee employee) {
         return r.save(employee);
     }
 
-    public void deleteemployee(int id) {
-        r.deleteById(id);
+    public void deleteemployee(Integer id) {
+        employee emp = r.findById(id)
+                .orElseThrow(() -> new EmployeeNotFoundException("employee not found with id " + id));
+
+        r.delete(emp);
     }
 
-    public employee getemployee(int id) {
+    public employee getemployeeById(Integer id) {
         return r.findById(id)
-                .orElseThrow(() -> new RuntimeException("Employee not found with id: " + id));
+                .orElseThrow(() -> new EmployeeNotFoundException("employee not found with id " + id));
     }
 
-    public employee updateemployees(int id, employee employee) {
+    public employee updateemployees(Integer id, employee employee) {
         r.findById(id)
-                .orElseThrow(() -> new RuntimeException("Employee not found with id: " + id));
+                .orElseThrow(() -> new EmployeeNotFoundException("employee not found with id " + id));
 
         employee.setId(id);
         return r.save(employee);

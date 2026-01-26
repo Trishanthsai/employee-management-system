@@ -4,24 +4,41 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 
 @Entity
 public class employee {
 
     @Id
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
+    @NotBlank(message = "name cannot be empty")
     private String name;
+
+    @Min(value = 18, message = "age must be at least 18")
     private int age;
+
+    @Positive(message = "salary must be positive")
     private double salary;
+
+    @NotBlank(message = "designation cannot be empty")
     private String designation;
+
+    @NotBlank(message = "email cannot be empty")
+    @Email(message = "email should be valid")
     private String email;
+
+    @Positive(message = "phone_no must be positive")
     private long phone_no;
 
     public employee() {
     }
 
-    public employee(int id, String name, int age, double salary, String designation, String email, long phone_no) {
+    public employee(Integer id, String name, int age, double salary, String designation, String email, long phone_no) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -31,11 +48,11 @@ public class employee {
         this.phone_no = phone_no;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
