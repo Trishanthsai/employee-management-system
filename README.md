@@ -1,16 +1,74 @@
-# React + Vite
+````md
+# Employee Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full stack Employee Management System built using React, Vite, Spring Boot, and MySQL.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Add Employee
+- View Employee List
+- Update Employee
+- Delete Employee
+- Responsive UI
+- REST API Integration
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Frontend
+- React
+- Vite
+- CSS
+- Bootstrap
 
-## Expanding the ESLint configuration
+### Backend
+- Spring Boot
+- Spring Data JPA
+- MySQL
+- REST API
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure
+
+employee-management-system/
+│
+├── ems-vite/
+│   ├── src/
+│   ├── public/
+│   ├── package.json/
+│   └── vite.config.js/
+│
+├── src/main/java/
+├── src/main/resources/
+├── pom.xml
+└── README.md
+
+## Frontend Setup
+
+```bash
+cd ems-vite
+npm install
+npm run dev
+````
+
+## Backend Setup
+
+```bash
+./mvnw spring-boot:run
+```
+
+## API Endpoints
+
+* GET /employee
+* GET /employee/{id}
+* POST /employee
+* PUT /employee/{id}
+* DELETE /employee/{id}
+
+## Future Improvements
+* Pagination
+* Authentication
+* Role Based Access
+* Audit logs
+
+
+```
+```
