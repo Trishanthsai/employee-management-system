@@ -15,7 +15,9 @@ const Employeelist = () => {
   function addnewemployee() {
     navigator('/add-employee');
   }
-  
+  function updateEmployee(id) {
+  navigator(`/edit-employee/${id}`);
+}
 
   const deleteEmployee = async (id) => {
     console.log("Deleting:", id);
