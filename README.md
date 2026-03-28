@@ -1,7 +1,7 @@
 ````md
 # Employee Management System
 
-A full stack Employee Management System built using React, Vite, Spring Boot, and MySQL.
+A full stack Employee Management System built using React, Vite, Spring Boot, and Postgresql.
 
 ## Features
 
